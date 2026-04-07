@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "hiv-twitter-pipeline"
+version = "0.1.0"
+description = "GPT-rate variable creation, dataset integration, and fine-tuned model validation for HIV-related tweet analysis."
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "openpyxl>=3.1",
+    "addfips>=0.4",
+    "openai>=1.0",
+]
+
+[project.scripts]
+hiv-gpt-rates  = "hiv_twitter_pipeline.cli.run_gpt_rates:main"
+hiv-integrate  = "hiv_twitter_pipeline.cli.run_integrate:main"
+hiv-validation = "hiv_twitter_pipeline.cli.run_validation:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["hiv_twitter_pipeline*"]
